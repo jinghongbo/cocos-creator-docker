@@ -62,6 +62,7 @@ RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$
   && apt-get clean
 
 ADD cocos-build.sh /opt/cocos-build.sh
-ADD cocos-creator /opt/cocos-creator 
-
+ADD https://storage.googleapis.com/otsimobuilds/cocos-creator-1.9.0-linux.tar.xz ./opt/
+RUN tar xvjf cocos-creator-1.9.0-linux.tar.xz -d /opt/cocos-creator
+#ADD cocos-creator /opt/cocos-creator 
 ENTRYPOINT ["/opt/cocos-build.sh"]
